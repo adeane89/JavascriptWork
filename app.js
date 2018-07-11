@@ -1,5 +1,5 @@
 //Wk4TuesdayHW
-//JS
+//Array portion
 
 //problem one S
 function date(){
@@ -14,7 +14,6 @@ function date(){
         month = "0" + month;
       };
     return (month + "/" + date+ "/" + year);
-
 }
 
 //problem two S
@@ -189,11 +188,24 @@ var duplicateCharacters = function(input){
 
 
 
+//Recursion portion
 
+//problem one S
+function factorial(n){
+    //base returns 1 so recursion stops, recurstion exectutes
+    return (n <= 0 ) ? 1 :(n * factorial(n-1));
+}
 
+//2,9 
+//3,4,5,6,7,8
 
+//problem two NS
+function intergerRange(x,y){
+    return (x == (y-1)) ? "none" : y - intergerRange(x, y-1);
+}
 
-
-
-
-
+//problem three S
+function exponent(base, exp) {
+    //first step is base case to stop the recursion, then the rest recurses if the base case is not met.
+    return (exp <= 0) ? 1 : base * exponent(base, exp-1);
+}
