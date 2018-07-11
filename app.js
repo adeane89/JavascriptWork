@@ -16,7 +16,6 @@ function date(){
     return (month + "/" + date+ "/" + year);
 
 }
-//console.log(date());
 
 //problem two S
 function leapYear(year){
@@ -31,53 +30,32 @@ function leapYear(year){
 }
 
 //problem three NS
-//var consecutiveArray = function(Array) {
+var consecutiveArray = function(inputArr) {
+       for (var i=0; i < inputArr.length; i++) {
+        for (var j = 0; j < inputArr.length; j++) {
+            if (i != j ) {
+                if (inputArr[i] == inputArr[j-1]) {
+                    return "These are not consecutive numbers";
+                }
+            }
+        }
+    }
+    return "These are consecutive numbers";
+}
 
-//}
-
-//problem four NS
-/*
+//problem four S
 var duplicateArray = function(inputArr) {
-    var i,j
-    if (Array.isArray(inputArr) == true){
-        for (i = 0; i < inputArr.length; i++) {
-            for (j = 0; j=i.length,)
-            if (i == i){
-                return inputArr[i] + " appeared multiple times";
-               }
-        };
-    } else {
-        return "You did not enter an array.";
+    for (var i=0; i < inputArr.length; i++) {
+        for (var j = 0; j < inputArr.length; j++) {
+            if (i != j ) {
+                if (inputArr[i] == inputArr[j]) {
+                    return "There are duplicate values";
+                }
+            }
+        }
     }
+    return "There were no duplicate values";
 }
-
-function find_duplicates(arr) {
-  var len=arr.length,
-      out=[],
-      counts={};
-
-  for (var i=0;i<len;i++) {
-    var item = arr[i];
-    counts[item] = counts[item] >= 1 ? counts[item] + 1 : 1;
-    if (counts[item] === 2) {
-      out.push(item);
-    }
-  }
-
-  return out;
-}
-
-works but i dont understand
-function unique(array){
-  var seen = new Set;
-  return array.filter(function(item){
-    if (!seen.has(item)) {
-      seen.add(item);
-      return true;
-    }
-  });
-}
-*/
 
 //problem five S
 var first = function(input, number) {
@@ -96,8 +74,8 @@ var first = function(input, number) {
         return firstArray;
     }
 }
-//myColor(["Red", "White", "Blue","Green"])
-//problem six
+
+//problem six S
 var myColor = function(input) {
     return input.join();
 }
@@ -123,8 +101,21 @@ var frequent = function(arr1) {
 }
 
 //problem eight NS
-//basically the same but slightly different than one above
-
+//logging both duplicate values and still returning "no dup vals"
+var duplicateValues = function(inputArr) {
+    var duplicates = [];
+    for (var i=0; i <= inputArr.length; i++) {
+        for (var j = 0; j <= inputArr.length; j++) {
+            if (i != j ) {
+                if (inputArr[i] == inputArr[j]) {
+                    //returning the first duplicate but not anymore
+                    console.log(inputArr[j]);
+                }
+            }
+        }
+    }
+    return "There were no duplicate values";
+}
 
 //problem nine S
 var reverse = function(input){
@@ -139,3 +130,70 @@ var palindrome = function(input){
         return  input + " is not a palindrome";
     }
 }
+
+//problem eleven S
+var comboArray = function(input){
+    var character, time, inputArray;
+    var letter = 0;
+    var wordArray = [];
+    while (letter < (input.length)) {
+        character = input.charAt(letter);
+        inputArray = [character];
+        for (time in wordArray) {
+            inputArray.push("" + wordArray[time] + character)
+        }
+        wordArray = wordArray.concat(inputArray);
+        letter ++;
+    }
+    return wordArray;
+} 
+
+//problem twelve S
+var alphabetical = function(input){
+    return input.split("").sort().join("").toString();
+}
+
+
+//problem thirteen NS
+var secondHighLow = function(inputArray){
+    var highest, lowest;
+    for (var i = 0; i <= inputArray.length; i++){
+        for (var j = 0; j <= inputArray.length; j++) {
+            if (inputArray[j] < inputArray[i]-1) {
+                lowest = inputArray[j];
+            } 
+            if (inputArray[j] > inputArray[i]) {
+                highest = inputArray[j];
+            } 
+        }
+    }
+    return inputArray.findIndex(highest);
+    //inputArray.slice(highest, );
+    //inputArray.slice(lowest);
+    //return lowest + ", " + highest;
+    return inputArray;
+}
+
+//problem fourteen S
+//come back to understand more
+//am i too tired or do i not understand? later me, please answer for now me
+var duplicateCharacters = function(input){
+    var inputArray = [];
+    for (var i = 0; i < input.length; i++){
+        if (inputArray.indexOf(input[i]) == -1) {
+            inputArray.push(input[i])
+        }
+    }
+    return inputArray.join("").toString();
+}
+
+
+
+
+
+
+
+
+
+
+
